@@ -14,6 +14,8 @@ vector<string> nom_funciones = {"crack", "mvp", "localiza","saca","wachea"};
 
 vector<char> simbolos = {'(',')','{','}','+',','};
 
+vector<string> relacional = {"mayorq","menorq","igualq","difq"};
+
 bool saberSiKeyword(string dato){
   bool encontrado = false;
   for (int i = 0; i < keywords.size(); i++) {

@@ -1,12 +1,18 @@
 program -> statment
 
-statment -> type ID > expresion
-            type ID, ID > funcion (expresion) 
-            type ID > funcion ( expresion )
+statment -> TypeVar > expresion
+            TypeVarVarios > funcion (expresion) 
             funcion ( expresion )
             for ( ID in ID ) { statment }
             if ( condicion ) { statment } else { statment } 
-            
+
+
+TypeVar -> type ID
+
+TypeVarVarios -> TypeVar, TypeVarVarios
+                 E
+
+
 expresion -> expresion operador expresion
             expresion comparacion expresion
             ID
@@ -19,6 +25,8 @@ funcion -> crack
           saca
           wachea
 
+
+
 valor -> 0...9
           "string"
           'a'...'z'
@@ -26,6 +34,7 @@ valor -> 0...9
 type -> str
         char
         int
+        bool
 
 comparacion -> mayorq
               menorq

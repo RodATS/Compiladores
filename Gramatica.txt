@@ -1,0 +1,36 @@
+program -> statment
+
+statment -> type ID > expresion
+            type ID, ID > funcion (expresion) 
+            type ID > funcion ( expresion )
+            funcion ( expresion )
+            for ( ID in ID ) { statment }
+            if ( condicion ) { statment } else { statment } 
+            
+expresion -> expresion operador expresion
+            expresion comparacion expresion
+            ID
+            valor
+            
+
+funcion -> crack
+          mvp
+          localiza
+          saca
+          wachea
+
+valor -> 0...9
+          "string"
+          'a'...'z'
+
+type -> str
+        char
+        int
+
+comparacion -> mayorq
+              menorq
+              igualq
+              difq
+
+operador -> +
+            -

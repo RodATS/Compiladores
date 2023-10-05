@@ -13,12 +13,16 @@ Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE
 TypeVar ::= Type id > Operacion	
 TypeVar ::= Type id
 
+---BORRAR---------
 TypeVarVarios ::= Type id TypeVarVarios'
      
 
 TypeVarVarios' ::= , TypeVarVarios'		
 TypeVarVarios' ::= TypeVarVarios		
 TypeVarVarios' ::= E
+
+---BORRAR---------
+
 
 Expresion ::= id OrExpresion	
 Expresion ::= id AndExpresion	

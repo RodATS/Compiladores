@@ -1,60 +1,51 @@
-Program -> StatmentList
+Program ::= StatmentList
 
-StatmentList -> Statment NEW_LINE StatmentList
-	-> E
-
-
-
-Statment -> TypeVar NEW_LINE
-            TypeVarVarios > Funcion (IDList) NEW_LINE
-            Funcion ( IDList ) NEW_LINE
-            for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}
-            if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
+StatmentList ::= Statment NEW_LINE StatmentList
+StatmentList ::= E
 
 
-TypeVar -> Type id > Operacion
-	-> Type id
+Statment ::= TypeVar NEW_LINE           
+Statment ::= TypeVarVarios > Funcion (IDList) NEW_LINE          
+Statment ::= Funcion ( IDList ) NEW_LINE           
+Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}          
+Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
 
+TypeVar ::= Type id > Operacion	
+TypeVar ::= Type id
 
-
-TypeVarVarios -> Type id TypeVarVarios'
+TypeVarVarios ::= Type id TypeVarVarios'
      
 
-TypeVarVarios' -> , TypeVarVarios'
-		-> TypeVarVarios
-		-> E
+TypeVarVarios' ::= , TypeVarVarios'		
+TypeVarVarios' ::= TypeVarVarios		
+TypeVarVarios' ::= E
+
+Expresion ::= id OrExpresion	
+Expresion ::= id AndExpresion	
+Expresion ::= id ComparacionExpresion
+
+OrExpresion ::= or Expresion		
+OrExpresion ::= E
 
 
-Expresion -> id OrExpresion
-	-> id AndExpresion
-	-> id ComparacionExpresion
-	
-
-OrExpresion -> or Expresion
-		-> E
-
-
-AndExpresion -> and Expresion
-	-> E
+AndExpresion ::= and Expresion	
+AndExpresion ::= E
 
 
 
-ComparacionExpresion -> Comparacion Expresion
-		 -> E
- 
+ComparacionExpresion ::= Comparacion Expresion		 
+ComparacionExpresion ::= E
 
+Operacion ::= id Operacion'
 
-Operacion -> id Operacion'
+Operacion' ::= Operador Operacion	
+Operacion' ::= E
 
-Operacion' -> Operador Operacion
-	-> E
-           
-
-Funcion -> crack
-          mvp
-          localiza
-          saca
-          wachea
+Funcion ::= crack  
+Funcion ::= mvp          
+Funcion ::= localiza          
+Funcion ::= saca          
+Funcion ::= wachea
 
 
 

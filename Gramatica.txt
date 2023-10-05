@@ -1,25 +1,56 @@
-program -> statment
+Program -> StatmentList
 
-statment -> TypeVar > expresion
-            TypeVarVarios > funcion (expresion) 
-            funcion ( expresion )
-            for ( ID in ID ) { statment }
-            if ( condicion ) { statment } else { statment } 
+StatmentList -> Statment NEW_LINE StatmentList
+	-> E
 
 
-TypeVar -> type ID
 
-TypeVarVarios -> TypeVar, TypeVarVarios
-                 E
+Statment -> TypeVar NEW_LINE
+            TypeVarVarios > Funcion (IDList) NEW_LINE
+            Funcion ( IDList ) NEW_LINE
+            for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}
+            if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
 
 
-expresion -> expresion operador expresion
-            expresion comparacion expresion
-            ID
-            valor
-            
+TypeVar -> Type id > Operacion
+	-> Type id
 
-funcion -> crack
+
+
+TypeVarVarios -> Type id TypeVarVarios'
+     
+
+TypeVarVarios' -> , TypeVarVarios'
+		-> TypeVarVarios
+		-> E
+
+
+Expresion -> id OrExpresion
+	-> id AndExpresion
+	-> id ComparacionExpresion
+	
+
+OrExpresion -> or Expresion
+		-> E
+
+
+AndExpresion -> and Expresion
+	-> E
+
+
+
+ComparacionExpresion -> or Expresion
+		 -> E
+ 
+
+
+Operacion -> id Operacion'
+
+Operacion' -> Operador Operacion
+	-> E
+           
+
+Funcion -> crack
           mvp
           localiza
           saca
@@ -27,19 +58,27 @@ funcion -> crack
 
 
 
-valor -> 0...9
+IDList -> ID ID'
+	-> id
+
+ID' 	-> , IDList
+	-> E
+
+
+Valor -> 0...9
           "string"
           'a'...'z'
 
-type -> str
+
+Type -> str
         char
         int
         bool
 
-comparacion -> mayorq
+Comparacion -> mayorq
               menorq
               igualq
               difq
 
-operador -> +
+Operador -> +
             -

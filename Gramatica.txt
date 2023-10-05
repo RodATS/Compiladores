@@ -61,6 +61,8 @@ Funcion -> crack
 IDList -> ID ID'
 	-> id
 
+ID -> Valor
+
 ID' 	-> , IDList
 	-> E
 

@@ -62,6 +62,7 @@ IDList -> ID ID'
 	-> id
 
 ID -> Valor
+  -> id
 
 ID' 	-> , IDList
 	-> E

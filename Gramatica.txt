@@ -1,7 +1,7 @@
 Program ::= StatmentList
 
 StatmentList ::= Statment NEW_LINE StatmentList
-StatmentList ::= E
+StatmentList ::= ε
 
 
 Statment ::= Type id > Operacion
@@ -11,37 +11,30 @@ Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}
 Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
 
 
----BORRAR---------
-TypeVarVarios ::= Type id TypeVarVarios'
-     
 
-TypeVarVarios' ::= , TypeVarVarios'		
-TypeVarVarios' ::= TypeVarVarios		
-TypeVarVarios' ::= E
-
----BORRAR---------
+Expresion ::= id TipoExpresion 
 
 
-Expresion ::= id OrExpresion	
-Expresion ::= id AndExpresion	
-Expresion ::= id ComparacionExpresion
+TipoExpresion ::= OrExpresion
+TipoExpresion ::= AndExpresion	
+TipoExpresion ::= ComparacionExpresion
+
 
 OrExpresion ::= or Expresion		
-OrExpresion ::= E
+OrExpresion ::= ε
 
 
 AndExpresion ::= and Expresion	
-AndExpresion ::= E
-
+AndExpresion ::= ε
 
 
 ComparacionExpresion ::= Comparacion Expresion		 
-ComparacionExpresion ::= E
+ComparacionExpresion ::= ε
 
 Operacion ::= id Operacion'
 
 Operacion' ::= Operador Operacion	
-Operacion' ::= E
+Operacion' ::= ε
 
 Funcion ::= crack  
 Funcion ::= mvp          
@@ -57,11 +50,7 @@ ID ::= Valor
 ID ::= id
 
 ID' ::= , IDList
-ID' ::= E
-
-Valor ::= 0...9
-Valor ::= "string"
-Valor ::= 'a'...'z'
+ID' ::= ε
 
 
 Type ::= str

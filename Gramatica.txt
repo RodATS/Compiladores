@@ -4,14 +4,12 @@ StatmentList ::= Statment NEW_LINE StatmentList
 StatmentList ::= E
 
 
-Statment ::= TypeVar 
+Statment ::= Type id > Operacion
 Statment ::= TypeVarVarios > Funcion (IDList) 
 Statment ::= Funcion ( IDList ) 
 Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}          
 Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
 
-TypeVar ::= Type id > Operacion	
-TypeVar ::= Type id
 
 ---BORRAR---------
 TypeVarVarios ::= Type id TypeVarVarios'

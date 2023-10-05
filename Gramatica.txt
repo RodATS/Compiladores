@@ -39,7 +39,7 @@ AndExpresion -> and Expresion
 
 
 
-ComparacionExpresion -> or Expresion
+ComparacionExpresion -> Comparacion Expresion
 		 -> E
  
 

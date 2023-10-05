@@ -4,9 +4,9 @@ StatmentList ::= Statment NEW_LINE StatmentList
 StatmentList ::= E
 
 
-Statment ::= TypeVar NEW_LINE           
-Statment ::= TypeVarVarios > Funcion (IDList) NEW_LINE          
-Statment ::= Funcion ( IDList ) NEW_LINE           
+Statment ::= TypeVar 
+Statment ::= TypeVarVarios > Funcion (IDList) 
+Statment ::= Funcion ( IDList ) 
 Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}          
 Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
 
@@ -48,31 +48,29 @@ Funcion ::= saca
 Funcion ::= wachea
 
 
+IDList ::= ID ID'
+IDList ::= id
 
-IDList -> ID ID'
-	-> id
+ID ::= Valor
+ID ::= id
 
-ID -> Valor
-  -> id
+ID' ::= , IDList
+ID' ::= E
 
-ID' 	-> , IDList
-	-> E
-
-
-Valor -> 0...9
-          "string"
-          'a'...'z'
+Valor ::= 0...9
+Valor ::= "string"
+Valor ::= 'a'...'z'
 
 
-Type -> str
-        char
-        int
-        bool
+Type ::= str
+Type ::= char
+Type ::= int
+Type ::= bool
 
-Comparacion -> mayorq
-              menorq
-              igualq
-              difq
+Comparacion ::= mayorq
+Comparacion ::=  menorq
+Comparacion ::= igualq
+Comparacion ::= difq
 
-Operador -> +
-            -
+Operador ::= +
+Operador ::=   -

@@ -3,7 +3,7 @@ import re
 
 keywords = ["str", "char", "int", "for", "in", "if"]
 nom_funciones = ["crack", "mvp", "localiza", "saca", "wachea"]
-simbolos = ['(', ')', '{', '}', '+', ',']
+simbolos = ['(', ')', '{', '}', '+', ',', '=']
 comp_ops = ['igualq', 'difq', 'menorq', 'mayorq', '<=', '>=']
 
 def saberSiKeyword(dato):
@@ -109,11 +109,12 @@ def scan(input_code):
 
 # Ejemplo de uso:
 input_code = """
+str varString = var2
 for i in range(10):
     if i < 5:
-        print("Menor")
+        wachea("Menor")
     else:
-        print("Mayor o igual")
+        wachea("Mayor o igual")
 """
 
 tokens = scan(input_code)

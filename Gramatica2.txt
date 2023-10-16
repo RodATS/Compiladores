@@ -16,8 +16,11 @@ Statement ::=  for ID in Expr : Block
 Else ::=  ε
 Else ::=  else : Block
 SimpleStatement ::=  Expr SSTail
-SSTail ::=  ε
-SSTail ::=  = Expr
+SSTail ::= = Expr
+SSTail ::= FunctionCall 
+SSTail ::= ε
+
+
 Expr ::=  orExpr ExprPrime
 ExprPrime ::=   if andExpr else andExpr ExprPrime
 ExprPrime ::=  ε
@@ -30,41 +33,44 @@ andExprPrime ::=  ε
 notExpr ::= CompExpr notExprPrime
 notExprPrime ::=  not CompExpr notExprPrime
 notExprPrime ::=  ε
-CompExpr ::=  IntExpr CompExprPrime
-CompExprPrime ::=  CompOp IntExpr CompExprPrime
-CompExprPrime ::=  ε
-IntExpr ::= Term IntExprPrime
-IntExprPrime ::= + Term IntExprPrime
-IntExprPrime ::=  - Term IntExprPrime
-IntExprPrime ::=  ε
-Term ::=  Factor TermPrime
-TermPrime ::= * Factor TermPrime
-TermPrime ::=  // Factor TermPrime
-TermPrime ::=  % Factor TermPrime
-TermPrime ::=  ε
+CompExpr ::= IntExpr CompExprPrime
+CompExprPrime ::= CompOp IntExpr CompExprPrime
+CompExprPrime ::= ε
+IntExpr ::= Factor IntExprPrime
+IntExprPrime ::= + Factor IntExprPrime
+IntExprPrime ::= - Factor IntExprPrime
+IntExprPrime ::= ε
+
 Factor ::= - Factor
 Factor ::= Name
 Factor ::= Literal
 Factor ::= List
-Factor ::=  ( Expr )
+Factor ::= ( Expr )
 Name ::= ID NameTail
 NameTail ::= ε
 NameTail ::= ( ExprList )
 NameTail ::= List
-Literal ::=  None
-Literal ::=  True
-Literal ::=  False
+Literal ::= None
+Literal ::= True
+Literal ::= False
 Literal ::= INTEGER
-Literal ::=  STRING
+Literal ::= STRING
 List ::= [ ExprList ]
 ExprList ::= ε
-ExprList ::=  Expr ExprListTail
-ExprListTail ::=  ε
-ExprListTail ::=  , Expr ExprListTail
-CompOp ::=  == 
-CompOp ::= != 
-CompOp ::= < 
-CompOp ::=  > 
-CompOp ::=  <= 
-CompOp ::=  >= 
-CompOp ::=  is
+ExprList ::= Expr ExprListTail
+ExprListTail ::= ε
+ExprListTail ::= , Expr ExprListTail
+CompOp ::= igualq
+CompOp ::= difq
+CompOp ::= menorq
+CompOp ::= mayorq
+CompOp ::= <=
+CompOp ::= >=
+
+FunctionCall ::= Funciones ( ExprList )
+
+Funciones ::= crack  
+Funciones ::= mvp          
+Funciones ::= localiza          
+Funciones ::= saca          
+Funciones ::= wachea

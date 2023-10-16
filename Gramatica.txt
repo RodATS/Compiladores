@@ -12,16 +12,22 @@ Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE
 
 
 
-Expresion ::= id TipoExpresion 
+Expresion ::= OrExpresion ExpresionCompleta
+
+ExpresionCompleta ::= if andExpresion else andExpresion ExpresionCompleta
+
+ExpresionCompleta ::= ε
+
+OrExpresion ::= AndExpresion OrExpresionCompleta 
+OrExpresionCompleta →  or AndExpresion  OrExpresionCompleta 
+OrExpresionCompleta →  ε
 
 
-TipoExpresion ::= OrExpresion
+
 TipoExpresion ::= AndExpresion	
 TipoExpresion ::= ComparacionExpresion
 
 
-OrExpresion ::= or Expresion		
-OrExpresion ::= ε
 
 
 AndExpresion ::= and Expresion	

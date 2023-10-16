@@ -1,0 +1,73 @@
+Program ::= StatmentList
+
+StatmentList ::= Statment NEW_LINE StatmentList
+StatmentList ::= ε
+
+
+Statment ::= Type id > Operacion
+Statment ::= TypeVarVarios > Funcion (IDList) 
+Statment ::= Funcion ( IDList ) 
+Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}          
+Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
+
+
+
+Expresion ::= OrExpresion ExpresionCompleta
+
+ExpresionCompleta ::= if andExpresion else andExpresion ExpresionCompleta
+
+ExpresionCompleta ::= ε
+
+OrExpresion ::= AndExpresion OrExpresionCompleta 
+OrExpresionCompleta →  or AndExpresion  OrExpresionCompleta 
+OrExpresionCompleta →  ε
+
+
+
+TipoExpresion ::= AndExpresion	
+TipoExpresion ::= ComparacionExpresion
+
+
+
+
+AndExpresion ::= and Expresion	
+AndExpresion ::= ε
+
+
+ComparacionExpresion ::= Comparacion Expresion		 
+ComparacionExpresion ::= ε
+
+Operacion ::= id Operacion'
+
+Operacion' ::= Operador Operacion	
+Operacion' ::= ε
+
+Funcion ::= crack  
+Funcion ::= mvp          
+Funcion ::= localiza          
+Funcion ::= saca          
+Funcion ::= wachea
+
+
+IDList ::= ID ID'
+IDList ::= id
+
+ID ::= Valor
+ID ::= id
+
+ID' ::= , IDList
+ID' ::= ε
+
+
+Type ::= str
+Type ::= char
+Type ::= int
+Type ::= bool
+
+Comparacion ::= mayorq
+Comparacion ::=  menorq
+Comparacion ::= igualq
+Comparacion ::= difq
+
+Operador ::= +
+Operador ::=   -

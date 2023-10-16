@@ -1,21 +1,12 @@
-Program ::=  DefList StatmentList
+Program ::=  StatmentList
 
-DefList ::= Def DefList
-DefList ::= ε
-
-Def ::= def ID ( TypeVarList)
 TypeVar ::= ID : Type
 
 Type ::=  int
 Type ::=  str
 Type ::=  [ Type ]
-TypedVarList ::=  ε
-TypedVarList ::=  TypedVar TypedVarListTail
-TypedVarListTail ::=  , TypedVar TypedVarListTail
-TypedVarListTail ::=  ε
-Return ::=  ε
-Return ::=  -> Type
-Block ::=  NEWLINE INDENT Statement StatementList DEDENT
+
+Block ::=  NEWLINE Statement StatementList
 StatementList ::=  Statement StatementList
 StatementList ::=  ε
 Statement ::=  SimpleStatement NEWLINE

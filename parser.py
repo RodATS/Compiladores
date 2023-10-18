@@ -279,7 +279,7 @@ def createParseTable():
     # for y in mat:
     #     frmt1 = "{:>12}" * len(y)
     #     print(f"{ntlist[j]} {frmt1.format(*y)}")
-    #     j += 1
+    #     j += 1    
 
     return (mat, grammar_is_LL, terminals)
 
@@ -326,7 +326,7 @@ def validateStringUsingStackBuffer(parsing_table, grammarll1,
             # take font of buffer (y) and tos (x)
             x = list(diction.keys()).index(stack[0])
             y = table_term_list.index(buffer[-1])
-            if parsing_table[x][y] != '':
+            if parsing_table[x][y] != "":
                 # format table entry received
                 entry = parsing_table[x][y]
                 print("{:>50} {:>50} {:>50}".
@@ -334,7 +334,7 @@ def validateStringUsingStackBuffer(parsing_table, grammarll1,
                              ' '.join(stack),
                              f"T[{stack[0]}][{buffer[-1]}] = {entry}"))
                 lhs_rhs = entry.split("->")
-                lhs_rhs[1] = lhs_rhs[1].replace('#', '').strip()
+                lhs_rhs[1] = lhs_rhs[1].replace('#', "").strip()
                 entryrhs = lhs_rhs[1].split()
                 stack = entryrhs + stack[1:]
             else:
@@ -359,9 +359,9 @@ rules = ["S -> Program",
 "Statement -> for ( Typevar ; Expr ; Expr ) { newline Statementlist newline } | if ( Expr ) { newline Statementlist newline } else { newline Statementlist newline } | Typevar | Funciones ( ListId )",
 "Statementlist -> Statement newline Statementlist | #",
 "ListId -> id , ListId | #",
-"Typevar -> Type id > cadena espace Stringlist",
+"Typevar -> Type id > cadena Stringlist",
 "Type -> string | char",
-"Stringlist -> cadena espace Stringlist | #",
+"Stringlist -> cadena , Stringlist | #",
 "Expr -> Orexpr",
 "Orexpr -> Andexpr Orexprprime",
 "Orexprprime -> or Andexpr Orexprprime | #",
@@ -421,7 +421,6 @@ term_userdef=[';',
               ",",
               ">",
               "cadena",
-              "espace",
               "string",
               "char",
               "or",
@@ -440,10 +439,10 @@ term_userdef=[';',
               "mvp",
               "localiza",
               "saca",
-              "wachea"
+              "wachea",
               ]
 
-sample_input_string="saca ( id )"
+sample_input_string="string id > cadena newline wachea ( id , ) "
 
 
 

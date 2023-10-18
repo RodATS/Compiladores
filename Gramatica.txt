@@ -1,73 +1,66 @@
-Program ::= StatmentList
+S ::= Program
 
-StatmentList ::= Statment NEW_LINE StatmentList
-StatmentList ::= ε
+Program ::= Statement newline Statementlist
 
+Statement ::= for ( Typevar ; Expr ; Expr ) { newline Statementlist newline } 
+Statement ::= if ( Expr ) { newline Statementlist newline } else { newline Statementlist newline } 
+Statement ::= Typevar | Funciones ( ListId )
 
-Statment ::= Type id > Operacion
-Statment ::= TypeVarVarios > Funcion (IDList) 
-Statment ::= Funcion ( IDList ) 
-Statment ::= for ( ID in ID ) { NEW_LINE StatmentList NEW_LINE}          
-Statment ::= if ( Expresion ) { NEW_LINE StatmentList NEW_LINE } else { NEW_LINE StatmentList NEW_LINE } 
+Statementlist ::= Statement newline Statementlist 
+Statementlist ::= #
 
+ListId ::= id , ListId 
+ListId ::= #
 
-
-Expresion ::= OrExpresion ExpresionCompleta
-
-ExpresionCompleta ::= if andExpresion else andExpresion ExpresionCompleta
-
-ExpresionCompleta ::= ε
-
-OrExpresion ::= AndExpresion OrExpresionCompleta 
-OrExpresionCompleta →  or AndExpresion  OrExpresionCompleta 
-OrExpresionCompleta →  ε
-
-
-
-TipoExpresion ::= AndExpresion	
-TipoExpresion ::= ComparacionExpresion
-
-
-
-
-AndExpresion ::= and Expresion	
-AndExpresion ::= ε
-
-
-ComparacionExpresion ::= Comparacion Expresion		 
-ComparacionExpresion ::= ε
-
-Operacion ::= id Operacion'
-
-Operacion' ::= Operador Operacion	
-Operacion' ::= ε
-
-Funcion ::= crack  
-Funcion ::= mvp          
-Funcion ::= localiza          
-Funcion ::= saca          
-Funcion ::= wachea
-
-
-IDList ::= ID ID'
-IDList ::= id
-
-ID ::= Valor
-ID ::= id
-
-ID' ::= , IDList
-ID' ::= ε
-
-
-Type ::= str
+Typevar ::= Type id > cadena espace Stringlist
+Type ::= string
 Type ::= char
-Type ::= int
-Type ::= bool
 
-Comparacion ::= mayorq
-Comparacion ::=  menorq
-Comparacion ::= igualq
-Comparacion ::= difq
+Stringlist ::= cadena espace Stringlist 
+Stringlist ::= #
 
-Operador ::= +
-Operador ::=   -
+Expr ::= Orexpr
+Orexpr ::= Andexpr Orexprprime
+Orexprprime ::= or Andexpr Orexprprime 
+Orexprprime ::= #
+
+Andexpr ::= Notexpr Andexprprime
+
+Andexprprime ::= and Notexpr Andexprprime 
+Andexprprime ::= #
+
+Notexpr ::= Compexpr Notexprprime
+
+Notexprprime ::= not Compexpr Notexprprime 
+Notexprprime ::= #
+
+Compexpr ::= Intexpr Compexprprime
+
+Compexprprime ::= CompOp Intexpr Compexprprime 
+Compexprprime ::= #
+
+Intexpr ::= Factor Intexprprime
+
+Intexprprime ::= + Factor Intexprprime 
+Intexprprime ::= - term Intexprprime 
+Intexprprime ::= #
+
+Factor ::= - Factor 
+Factor ::= id 
+Factor ::= cadena 
+Factor ::= ( Expr )
+
+Literal ::= none 
+Literal ::= true 
+Literal ::= false
+
+CompOp ::= igualq 
+CompOp ::= difq 
+CompOp ::= menorq 
+CompOp ::= mayorq
+
+Funciones ::= crack 
+Funciones ::= mvp 
+Funciones ::= localiza 
+Funciones ::= saca 
+Funciones ::= wachea

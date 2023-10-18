@@ -442,7 +442,7 @@ term_userdef=[';',
               "wachea",
               ]
 
-sample_input_string="string id > cadena newline wachea ( id , ) "
+sample_input_string="string id > cadena newline wachea ( id , ) newline"
 
 
 

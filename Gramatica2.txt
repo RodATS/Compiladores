@@ -1,76 +1,23 @@
-Program ::=  StatmentList
-
-TypeVar ::= ID : Type
-
-Type ::=  int
-Type ::=  str
-Type ::=  [ Type ]
-
-Block ::=  NEWLINE Statement StatementList
-StatementList ::=  Statement StatementList
-StatementList ::=  ε
-Statement ::=  SimpleStatement NEWLINE
-Statement ::=  if Expr : Block Else
-Statement ::=  while Expr : Block
-Statement ::=  for ID in Expr : Block
-Else ::=  ε
-Else ::=  else : Block
-SimpleStatement ::=  Expr SSTail
-SSTail ::= = Expr
-SSTail ::= FunctionCall 
-SSTail ::= ε
-
-
-Expr ::=  orExpr ExprPrime
-ExprPrime ::=   if andExpr else andExpr ExprPrime
-ExprPrime ::=  ε
-orExpr ::=  andExpr orExprPrime
-orExprPrime ::= or andExpr orExprPrime
-orExprPrime ::=  ε
-andExpr ::= notExpr andExprPrime
-andExprPrime ::=  and notExpr andExprPrime
-andExprPrime ::=  ε
-notExpr ::= CompExpr notExprPrime
-notExprPrime ::=  not CompExpr notExprPrime
-notExprPrime ::=  ε
-CompExpr ::= IntExpr CompExprPrime
-CompExprPrime ::= CompOp IntExpr CompExprPrime
-CompExprPrime ::= ε
-IntExpr ::= Factor IntExprPrime
-IntExprPrime ::= + Factor IntExprPrime
-IntExprPrime ::= - Factor IntExprPrime
-IntExprPrime ::= ε
-
-Factor ::= - Factor
-Factor ::= Name
-Factor ::= Literal
-Factor ::= List
-Factor ::= ( Expr )
-Name ::= ID NameTail
-NameTail ::= ε
-NameTail ::= ( ExprList )
-NameTail ::= List
-Literal ::= None
-Literal ::= True
-Literal ::= False
-Literal ::= INTEGER
-Literal ::= STRING
-List ::= [ ExprList ]
-ExprList ::= ε
-ExprList ::= Expr ExprListTail
-ExprListTail ::= ε
-ExprListTail ::= , Expr ExprListTail
-CompOp ::= igualq
-CompOp ::= difq
-CompOp ::= menorq
-CompOp ::= mayorq
-CompOp ::= <=
-CompOp ::= >=
-
-FunctionCall ::= Funciones ( ExprList )
-
-Funciones ::= crack  
-Funciones ::= mvp          
-Funciones ::= localiza          
-Funciones ::= saca          
-Funciones ::= wachea
+"S -> Program",
+"Program -> Statement newline Statementlist",
+"Statement -> for ( Typevar ; Expr ; Expr ) { newline Statementlist newline } | if ( Expr ) { newline Statementlist newline } else { newline Statementlist newline } | Typevar | Funciones ( ListId )",
+"Statementlist -> Statement newline Statementlist | #",
+"ListId -> id , ListId | #,
+"Typevar -> Type id > cadena espace Stringlist",
+"Type -> string | char",
+"Stringlist -> cadena espace Stringlist | #",
+"Expr -> Orexpr",
+"Orexpr -> Andexpr Orexprprime",
+"Orexprprime -> or Andexpr Orexprprime | #",
+"Andexpr -> Notexpr Andexprprime",
+"Andexprprime -> and Notexpr Andexprprime | #",
+"Notexpr -> Compexpr Notexprprime",
+"Notexprprime -> not Compexpr Notexprprime | #",
+"Compexpr -> Intexpr Compexprprime",
+"Compexprprime -> CompOp Intexpr Compexprprime | #",
+"Intexpr -> Factor Intexprprime",
+"Intexprprime -> + Factor Intexprprime | - term Intexprprime | #",
+"Factor -> - Factor | id | cadena | ( Expr )",
+"Literal -> none | true | false",
+"CompOp -> igualq | difq | menorq | mayorq",
+"Funciones -> crack | mvp | localiza | saca | wachea"

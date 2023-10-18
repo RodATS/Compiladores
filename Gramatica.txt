@@ -1,5 +1,3 @@
-S ::= Program
-
 Program ::= Statement newline Statementlist
 
 Statement ::= for ( Typevar ; Expr ; Expr ) { newline Statementlist newline } 
@@ -7,43 +5,43 @@ Statement ::= if ( Expr ) { newline Statementlist newline } else { newline State
 Statement ::= Typevar | Funciones ( ListId )
 
 Statementlist ::= Statement newline Statementlist 
-Statementlist ::= #
+Statementlist ::= ε
 
-ListId ::= id , ListId 
-ListId ::= #
+ListId ::= id , ListId
+ListId ::= ε
 
-Typevar ::= Type id > cadena espace Stringlist
+Typevar ::= Type id > cadena , Stringlist
 Type ::= string
 Type ::= char
 
-Stringlist ::= cadena espace Stringlist 
-Stringlist ::= #
+Stringlist ::= cadena , Stringlist 
+Stringlist ::= ε
 
 Expr ::= Orexpr
 Orexpr ::= Andexpr Orexprprime
 Orexprprime ::= or Andexpr Orexprprime 
-Orexprprime ::= #
+Orexprprime ::= ε
 
 Andexpr ::= Notexpr Andexprprime
 
 Andexprprime ::= and Notexpr Andexprprime 
-Andexprprime ::= #
+Andexprprime ::= ε
 
 Notexpr ::= Compexpr Notexprprime
 
 Notexprprime ::= not Compexpr Notexprprime 
-Notexprprime ::= #
+Notexprprime ::= ε
 
 Compexpr ::= Intexpr Compexprprime
 
 Compexprprime ::= CompOp Intexpr Compexprprime 
-Compexprprime ::= #
+Compexprprime ::= ε
 
 Intexpr ::= Factor Intexprprime
 
 Intexprprime ::= + Factor Intexprprime 
 Intexprprime ::= - term Intexprprime 
-Intexprprime ::= #
+Intexprprime ::= ε
 
 Factor ::= - Factor 
 Factor ::= id 
